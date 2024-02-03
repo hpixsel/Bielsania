@@ -72,6 +72,10 @@ const { title } = Astro.props;
     line-height: 1;
   }
 
+  p {
+    line-height: 1.6;
+  }
+
   img,
   svg {
     display: block;
@@ -81,7 +85,7 @@ const { title } = Astro.props;
   .container {
     display: flex;
     flex-direction: column;
-    min-height: 200dvh;
+    min-height: 100dvh;
   }
 
   .wrapper {
@@ -91,5 +95,16 @@ const { title } = Astro.props;
 
   .main {
     flex-grow: 1;
+  }
+
+  .btn {
+    display: block;
+    padding: 1rem 2rem;
+    background-color: var(--clr-secondary);
+    color: var(--clr-text);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 10rem;
+    width: fit-content;
   }
 </style>
