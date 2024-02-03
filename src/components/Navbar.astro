@@ -14,7 +14,7 @@ const currentPath = pathname.slice(1);
     (entries) => {
       navigation?.classList.toggle("sticking", !entries[0].isIntersecting);
     },
-    { rootMargin: "100px 0px 0px 0px" },
+    { rootMargin: "50px 0px 0px 0px" },
   );
 
   navObserver.observe(scrollWatcher);
@@ -152,6 +152,7 @@ const currentPath = pathname.slice(1);
   .nav-container {
     position: sticky;
     top: 0;
+    background-color: initial;
     transition: background-color 250ms;
     z-index: 999;
   }
@@ -237,7 +238,56 @@ const currentPath = pathname.slice(1);
 
   .active,
   .active svg path {
-    fill: var(--clr-accent);
-    color: var(--clr-accent) !important;
+    fill: var(--clr-secondary);
+    color: var(--clr-secondary) !important;
+  }
+
+  @media (min-width: 60rem) {
+    .nav__menu,
+    .nav__links__socials,
+    .nav__links__link a span {
+      display: none;
+    }
+
+    .nav__logo {
+      width: fit-content;
+      margin-right: auto;
+    }
+
+    .nav__links {
+      position: initial;
+      transform: translateX(0);
+      flex-direction: row;
+      background-color: var(--clr-primary-300);
+      font-size: 14px;
+      padding: 0.5em 1em;
+      border-radius: 5rem;
+    }
+
+    .nav__links__link {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__links__link::after {
+      width: 1px;
+      height: 1rem;
+      margin-inline: 1rem;
+    }
+
+    .nav__links__link:last-of-type::after {
+      display: none;
+    }
+
+    .nav__links__link a {
+      white-space: nowrap;
+      padding-block: 0;
+      grid-template-columns: 2rem 1fr;
+      font-weight: 400;
+    }
+
+    .active {
+      font-weight: 700 !important;
+    }
   }
 </style>
