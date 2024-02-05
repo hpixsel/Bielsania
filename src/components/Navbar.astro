@@ -1,6 +1,7 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
+console.log("currentPath", currentPath);
 ---
 
 <script>
@@ -68,7 +69,9 @@ const currentPath = pathname.slice(1);
       </li>
       <li class="nav__links__link">
         <a
-          class={currentPath === ("gry" || "gry/") ? "active" : ""}
+          class={currentPath === "gry" || currentPath === "gry/"
+            ? "active"
+            : ""}
           href="/gry"
         >
           <div class="nav__links__link__svg">
@@ -99,7 +102,9 @@ const currentPath = pathname.slice(1);
       </li>
       <li class="nav__links__link">
         <a
-          class={currentPath === ("zespol" || "zespol/") ? "active" : ""}
+          class={currentPath === "zespol" || currentPath === "zespol/"
+            ? "active"
+            : ""}
           href="/zespol"
         >
           <div class="nav__links__link__svg">
@@ -121,7 +126,9 @@ const currentPath = pathname.slice(1);
       </li>
       <li class="nav__links__link">
         <a
-          class={currentPath === ("kontakt" || "kontakt/") ? "active" : ""}
+          class={currentPath === "kontakt" || currentPath === "kontakt/"
+            ? "active"
+            : ""}
           href="/kontakt"
         >
           <div class="nav__links__link__svg">
