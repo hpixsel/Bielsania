@@ -20,7 +20,4 @@ Następnie należy wejść pod link [http://localhost:4321](http://localhost:432
 ```bash
 #Zbudowanie projektu
 npm run build
-
-#Dystrybucja
-npm run start
 ```
