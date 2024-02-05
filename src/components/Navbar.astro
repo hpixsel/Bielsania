@@ -67,7 +67,10 @@ const currentPath = pathname.slice(1);
         </a>
       </li>
       <li class="nav__links__link">
-        <a class={currentPath === "gry" ? "active" : "gry"} href="/gry">
+        <a
+          class={currentPath === ("gry" || "gry/") ? "active" : ""}
+          href="/gry"
+        >
           <div class="nav__links__link__svg">
             <svg
               width="22"
@@ -96,7 +99,7 @@ const currentPath = pathname.slice(1);
       </li>
       <li class="nav__links__link">
         <a
-          class={currentPath === "zespol" ? "active" : "zespol"}
+          class={currentPath === ("zespol" || "zespol/") ? "active" : ""}
           href="/zespol"
         >
           <div class="nav__links__link__svg">
@@ -118,7 +121,7 @@ const currentPath = pathname.slice(1);
       </li>
       <li class="nav__links__link">
         <a
-          class={currentPath === "kontakt" ? "active" : "kontakt"}
+          class={currentPath === ("kontakt" || "kontakt/") ? "active" : ""}
           href="/kontakt"
         >
           <div class="nav__links__link__svg">
