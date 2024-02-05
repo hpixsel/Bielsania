@@ -12,6 +12,7 @@ const { frontmatter } = Astro.props;
         {
           frontmatter?.steam ? (
             <a href={frontmatter?.steam} target="_blank">
+              <title>Steam Link</title>
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -30,6 +31,7 @@ const { frontmatter } = Astro.props;
         {
           frontmatter?.gamejolt ? (
             <a href={frontmatter?.gamejolt} target="_blank">
+              <title>Gamejolt Link</title>
               <svg
                 viewBox="0 0 23 24"
                 fill="none"
@@ -49,7 +51,24 @@ const { frontmatter } = Astro.props;
       <h2>{frontmatter.title}</h2>
     </div>
     <div class="game_layout__imgs">
-      <img src={"/gry/" + frontmatter.imgs[0]} alt="" />
+      <div class="game_layout__imgs__slides">
+        {
+          frontmatter.imgs.map((img: string, id: number) => {
+            return <img id={"slide-" + id} src={"/gry/" + img} alt="" />;
+          })
+        }
+      </div>
+      <div class="game_layout__imgs__nav">
+        {
+          frontmatter.imgs.map((img: string, id: number) => {
+            return (
+              <a href={"#slide-" + id}>
+                <img src={"/gry/" + img} alt={"slide" + id} />
+              </a>
+            );
+          })
+        }
+      </div>
     </div>
     <slot />
     <div class="game_layout__team">
@@ -93,12 +112,60 @@ const { frontmatter } = Astro.props;
 
   .game_layout__imgs {
     margin-top: 1rem;
+    width: 100%;
+    overflow: hidden;
   }
 
-  .game_layout__imgs img {
-    width: 100%;
+  .game_layout__imgs__slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .game_layout__imgs__slides img {
+    min-width: 100%;
+    max-width: 100%;
     border-radius: 0.25rem;
     overflow: hidden;
+    scroll-snap-align: start;
+    scroll-margin-top: 15rem;
+  }
+
+  .game_layout__imgs__slides > * + * {
+    margin-left: 1rem;
+  }
+
+  .game_layout__imgs__slides::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .game_layout__imgs__slides::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+  }
+
+  .game_layout__imgs__slides::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .game_layout__imgs__nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .game_layout__imgs__nav > * {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.25rem;
+  }
+
+  .game_layout__imgs__nav img {
+    width: 100%;
   }
 
   .game_layout :global(p) {
@@ -137,6 +204,11 @@ const { frontmatter } = Astro.props;
 
     .game_layout__imgs {
       margin-top: 2rem;
+    }
+
+    .game_layout__imgs__nav {
+      margin-top: 2rem;
+      gap: 2rem;
     }
 
     .game_layout :global(p) {
