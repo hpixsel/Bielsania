@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import Game from "../../components/Game.astro";
 import Layout from "../../layouts/Layout.astro";
 const allGamesPosts = await getCollection("games");
-console.log(allGamesPosts);
 const allGamesPostsSorted = allGamesPosts
   .sort((x: any, y: any) => {
     return x.data.added - y.data.added;
@@ -20,7 +19,7 @@ const gamesPosts = allGamesPostsSorted.map((post) => ({
 }));
 ---
 
-<Layout title="Bielsania">
+<Layout title="Nasze Gry">
   <div class="games wrapper">
     {
       gamesPosts.map((item) => {

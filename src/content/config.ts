@@ -18,6 +18,20 @@ const gamesCollection = defineCollection({
   })
 })
 
+const teamCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    img: z.string(),
+    name: z.string(),
+    nickname: z.string(),
+    role: z.array(z.string()),
+    linkedin: z.string().optional(),
+    facebook: z.string().optional(),
+    twitter: z.string().optional()
+  })
+})
+
 export const collections = {
   games: gamesCollection,
+  team: teamCollection
 };
