@@ -1,7 +1,7 @@
 ---
 added: 1607128481409
-title: Twój stary pijany
-gamejolt: https://store.steampowered.com/app/2488410/Tarantula_Virus/
+title: Lorem Ipsum
+gamejolt: https://gamejolt.com/games/fnaf-world/124921
 imgs: ["/tsp/TSP3.jpg", "/tsp/TSP.jpg", "/tsp/TSP2.jpg", "/tsp/TSP4.jpg"]
 team:
   [
@@ -29,4 +29,4 @@ team:
   ]
 ---
 
-Jesteśmy zespołem pasjonatów, którzy wierzą w siłę rozrywki jako środka do przekraczania granic, pobudzania wyobraźni i tworzenia niezapomnianych wspomnień. W Bielsania Entertainment nie tylko projektujemy gry, ale także kształtujemy światy, w które gracze mogą się zanurzyć, odkrywając nowe wymiary przygód.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.

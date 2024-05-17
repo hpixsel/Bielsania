@@ -1,6 +1,6 @@
 ---
 added: 1657128481409
-title: Twój stary pijany
+title: Lorem Ipsum
 steam: https://store.steampowered.com/app/2488410/Tarantula_Virus/
 imgs: ["/tsp/TSP2.jpg", "/tsp/TSP.jpg", "/tsp/TSP3.jpg", "/tsp/TSP4.jpg"]
 team:
@@ -29,5 +29,4 @@ team:
   ]
 ---
 
-Debil jebany
-zespołem pasjonatów, którzy wierzą w siłę rozrywki jako środka do przekraczania granic, pobudzania wyobraźni i tworzenia niezapomnianych wspomnień. W Bielsania Entertainment nie tylko projektujemy gry, ale także kształtujemy światy, w które gracze mogą się zanurzyć, odkrywając nowe wymiary przygód.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
