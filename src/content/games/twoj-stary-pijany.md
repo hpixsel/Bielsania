@@ -1,9 +1,9 @@
 ---
 added: 1707128481409
-title: Lorem Ipsum
+title: Mitoman
 steam: https://store.steampowered.com/app/2488410/Tarantula_Virus/
 gamejolt: https://gamejolt.com/games/fnaf-world/124921
-imgs: ["/tsp/TSP4.jpg", "/tsp/TSP2.jpg", "/tsp/TSP3.jpg", "/tsp/TSP.jpg"]
+imgs: ["/tsp/3.jpg", "/tsp/2.jpg", "/tsp/1.jpg"]
 team:
   [
     {
@@ -30,4 +30,4 @@ team:
   ]
 ---
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Fabularna gra z otwartym światem dziejąca się w PRL'u. Poczuj się socjalistycznej rzeczywistości jak pracownik zakładów przemysłowych. Ale czy na pewno tylko tyle? Zwiedzaj otwarty świat, daj się ponieść fabule i doświadcz socrealizmu wprost z legend pokolenia X - nieraz podkolorowanych. Tutaj wszystkie one stają się prawdziwe.
