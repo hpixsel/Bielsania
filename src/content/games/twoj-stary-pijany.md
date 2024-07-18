@@ -1,8 +1,8 @@
 ---
 added: 1707128481409
 title: Mitoman
-steam: #
-gamejolt: #
+steam: ""
+gamejolt: ""
 imgs: ["/tsp/3.jpg", "/tsp/1.jpg"]
 team:
   [
@@ -11,7 +11,7 @@ team:
       name: Kacper Janusz,
       nickname: yanushevitz,
       role: ["Mechaniki gry", "Modelowanie 3D", "Kreowanie świata"],
-      desc: Wszystko co się rusza jest moją winą a wszystko co ma zepsutą fizykę i wylatuje w kosmos jest moją zasługą. 
+      desc: Wszystko co się rusza jest moją winą a wszystko co ma zepsutą fizykę i wylatuje w kosmos jest moją zasługą.,
     },
     {
       img: 2.jpg,
