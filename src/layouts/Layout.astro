@@ -116,6 +116,21 @@ const { title } = Astro.props;
       transform 125ms ease-in;
   }
 
+  .btn2{
+    display: block;
+    padding: 1rem 2rem;
+    border: 2px solid var(--clr-text);
+    color: var(--clr-text);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 10rem;
+    width: fit-content;
+    cursor: pointer;
+    transition:
+      background-color 125ms ease-out,
+      transform 125ms ease-in;
+  }
+
   .btn:hover {
     background-color: color-mix(in srgb, var(--clr-secondary) 75%, transparent);
     transform: scale(1.1);

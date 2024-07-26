@@ -1,7 +1,6 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
-console.log("currentPath", currentPath);
 ---
 
 <script>
@@ -149,6 +148,12 @@ console.log("currentPath", currentPath);
         </a>
       </li>
       <div class="nav__links__socials">
+        <a href="#!" target="_blank">
+          <img src="/svgs/patronite.svg" alt="Patronite Link" />
+        </a>
+        <a href="#!" target="_blank">
+          <img src="/svgs/buymeacoffee.svg" alt="Buy me a Coffee Link" />
+        </a>
         <a href="https://twitter.com/Bielsania" target="_blank">
           <img src="/svgs/twitter.svg" alt="Twitter Link" />
         </a>
