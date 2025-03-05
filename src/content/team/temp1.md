@@ -2,8 +2,9 @@
 img: 1.jpg
 name: Kacper Janusz
 nickname: yanushevitz   
-role: ["Mechaniki gry", "Zarządzanie zespołem"]
+role: ["Główny developer", "Scenarzysta"]
 facebook: https://www.facebook.com/rainydaysneversaygoodbye
+twitter: https://x.com/yanushevitz
 ---
 
-Współzałożyciel studia Bielsania, główny programista mechanik i manager zespołu. W skrócie dużo naraz, jednak cel po który idziemy jest tego warty. Moje zainteresowania to głównie programistyka, stara motoryzacja, muzyka aż od 70" do teraz. Ta mieszanka pozwoliła stworzyć to, nad czym właśnie pracujemy
+Uwielbiam ciągły rozwój dobrych inicjatyw. Moje zainteresowania to głównie programistyka, stara motoryzacja, muzyka aż od 70" do teraz oraz złożone problemy społeczne. Ta mieszanka pozwoliła stworzyć to, nad czym właśnie pracujemy. 

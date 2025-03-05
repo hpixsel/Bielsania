@@ -2,9 +2,9 @@
 img: 2.jpg
 name: Marcin Kuboszek
 nickname: cover_master
-role: ["Modelowanie 3D", "Teksturowanie"]
+role: ["Naczelny grafik 3D", "Główny tester"]
 facebook: https://www.facebook.com/marcin.kuboszek.54
-twitter: https://x.com/KamilTaca
+twitter: https://x.com/Marcin_Kuboszek
 ---
 
-Współzałożyciel studia Bielsania, główny grafik 3D, pasjonat klasycznej motoryzacji, PRL'owskiej audiotechniki i innego sprzętu czasów komunistycznych.
+Pasjonat klasycznej motoryzacji, PRL'owskiej audiotechniki i innego sprzętu czasów komunistycznych. Właściciel odrestaurowanego własnoręcznie Ogara 200 a także główny serwisant sprzętów Diory, Unitry i Radmora w okolicy. Otwarty gość który nie boi się podejmowania nowych wyzwań.
