@@ -3,7 +3,7 @@ added: 1707128481409
 title: Mitoman
 steam: ""
 gamejolt: ""
-imgs: ["/tsp/3.jpg", "/tsp/1.jpg"]
+imgs: ["/tsp/3.jpg", "/tsp/1.jpg", "/tsp/2.png"]
 team:
   [
     {

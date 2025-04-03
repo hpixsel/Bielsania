@@ -1,6 +1,7 @@
 ---
 img: 4.jpeg
 name: Emilian Maga
+nickname: szeregowypalec
 role: ["Art director, Graphic designer"]
 facebook: https://www.facebook.com/marcin.kuboszek.54
 twitter: https://x.com/Marcin_Kuboszek

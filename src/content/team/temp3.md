@@ -1,6 +1,7 @@
 ---
 img: 3.jpg
 name: Maciej Nowak
+nickname: muk
 role: ["Project manager, Developer"]
 facebook: https://www.facebook.com/marcin.kuboszek.54
 twitter: https://x.com/Marcin_Kuboszek
