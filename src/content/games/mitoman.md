@@ -11,28 +11,28 @@ team:
       name: Kacper Janusz,
       nickname: yanushevitz,
       role: ["Główny developer", "Scenarzysta", "Modelowanie 3D"],
-      # desc: Wszystko co się rusza jest moją winą a wszystko co ma zepsutą fizykę i wylatuje w kosmos jest moją zasługą.,
+      desc: "Uwielbiam ciągły rozwój dobrych inicjatyw. Moje zainteresowania to głównie programistyka, stara motoryzacja, muzyka aż od 70 do teraz oraz złożone problemy społeczne. Ta mieszanka pozwoliła stworzyć to, nad czym właśnie pracujemy",
     },
     {
       img: 2.jpg,
       name: Marcin Kuboszek,
       nickname: cover_master,
       role: ["Główny grafik 3D", "Prowadzący social mediów", "Kreowanie świata"],
-      # desc: Wszystkie skomplikowane modele robiłem ja. Balans poligonów do optymalizacji jest idealny*,
+      desc: Wszystkie skomplikowane modele robiłem ja. Balans poligonów do optymalizacji jest idealny*,
     },
     {
       img: 3.jpg,
       name: Maciej Nowak,
       nickname: muk,
       role: ["Project manager, Developer"],
-      # desc: Wszystko gra.,
+      desc: "Zaraziłem się miłością do klasycznych samochodów jako dziecko, grając w gry wyścigowe. Inaczej mówiąc, im bardziej ‘pudło’ na kółkach, tym lepiej. Razem z pasją do game developmentu, którą rozwijam od 4 lat, pozwala mi na tworzenie tego projektu.",
     },
     {
       img: 4.jpeg,
       name: Emilian Maga,
       nickname: szeregowypalec,
       role: ["Art director, Graphic designer"],
-      # desc: Wszystkie skomplikowane modele robiłem ja. Balans poligonów do optymalizacji jest idealny*,
+      desc: "Z zawodu jestem grafikiem projektowym lecz od zawsze ciągnęło mnie w świat gier, studiuje projektowanie gier komputerowych. Głównie tworze prace w klimatach około wojennych i post apo, a hobbystycznie interesuje się motoryzacją i kolarstwem górskim. Chciałbym by ta gra miała jak najlepszy klimat PRL-u.",
     },
   ]
 ---
