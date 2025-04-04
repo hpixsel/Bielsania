@@ -1,9 +1,9 @@
 ---
 added: 1707128481409
 title: Mitoman
-steam: ""
+steam: "https://store.steampowered.com/app/3633880/Mitoman/"
 gamejolt: ""
-imgs: ["/tsp/3.png", "/tsp/1.png", "/tsp/2.png"]
+imgs: ["/tsp/14.jpg","/tsp/11.png","/tsp/13.png", "/tsp/3.png", "/tsp/2.png"]
 team:
   [
     {
