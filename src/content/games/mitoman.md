@@ -18,7 +18,7 @@ team:
       name: Marcin Kuboszek,
       nickname: cover_master,
       role: ["Główny grafik 3D", "Prowadzący social mediów", "Kreowanie świata"],
-      desc: Wszystkie skomplikowane modele robiłem ja. Balans poligonów do optymalizacji jest idealny*,
+      desc: "Pasjonat klasycznej motoryzacji, PRL'owskiej audiotechniki i innego sprzętu czasów komunistycznych. Właściciel odrestaurowanego własnoręcznie Ogara 200 a także główny serwisant sprzętów Diory, Unitry i Radmora w okolicy. Otwarty gość który nie boi się podejmowania nowych wyzwań.",
     },
     {
       img: 3.jpg,
@@ -37,4 +37,4 @@ team:
   ]
 ---
 
-Mitoman to wyścigowa gra fabularna osadzona w latach 70” i 80” w realiach Polskiej Republiki Ludowej. Jest to zbiór wspomnień Józka Środy - protagonisty urodzonego w 1962r., który w trakcie kolacji wigilijnej opowiada swojemu synowi, jak wyglądało życie za komuny. Jego historie pierwotnie trzymają się całości, jednak z czasem alkohol we krwi Józka zaczyna działać coraz mocniej a historie coraz bardziej odbiegają od rzeczywistości. Gra kończy się pokonaniem największego barona narkotykowego w Bielsku, co jest zaakcentowane przez zaśnięcie z przepicia Józka na krześle podczas wigilii. Wydarzenia o których opowiada są związane głównie z jego zdolnościami prowadzenia samochodów.
+Mitoman to wyścigowa gra fabularna osadzona w latach 70” i 80” w realiach Polskiej Republiki Ludowej - w Bielsku-Białej. Jest to zbiór wspomnień Józka Środy - protagonisty urodzonego w 1962r., który w trakcie kolacji wigilijnej opowiada swojemu synowi, jak wyglądało życie za komuny. Jego historie pierwotnie trzymają się całości, jednak z czasem historie coraz bardziej odbiegają od rzeczywistości. Nie ma w nich miejsca na żadne "nudne" i smutne rzeczy - ale czy na pewno? Jego świat skrywa pewne wspomnienia, co do których był przekonany, że zostały już dawno wymazane. Wydarzenia o których opowiada są związane głównie z jego zdolnościami prowadzenia wszystkich samochodów jakie jeździły po polskich ulicach.
