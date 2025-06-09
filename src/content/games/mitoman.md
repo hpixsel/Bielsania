@@ -1,9 +1,9 @@
 ---
 added: 1707128481409
-title: Mitoman
-steam: "https://store.steampowered.com/app/3633880/Mitoman/"
+title: "Turbo Liar: Rust & Fast"
+steam: "https://store.steampowered.com/app/3633880/Turbo_Liar_Rust__Fast/"
 gamejolt: ""
-imgs: ["/tsp/14.jpg","/tsp/11.png","/tsp/13.png", "/tsp/3.png", "/tsp/2.png"]
+imgs: ["/tsp/2.png","/tsp/1.png","/tsp/3.png"]
 team:
   [
     {
@@ -37,4 +37,4 @@ team:
   ]
 ---
 
-Mitoman to wyścigowa gra fabularna osadzona w latach 70” i 80” w realiach Polskiej Republiki Ludowej - w Bielsku-Białej. Jest to zbiór wspomnień Józka Środy - protagonisty urodzonego w 1962r., który w trakcie kolacji wigilijnej opowiada swojemu synowi, jak wyglądało życie za komuny. Jego historie pierwotnie trzymają się całości, jednak z czasem historie coraz bardziej odbiegają od rzeczywistości. Nie ma w nich miejsca na żadne "nudne" i smutne rzeczy - ale czy na pewno? Jego świat skrywa pewne wspomnienia, co do których był przekonany, że zostały już dawno wymazane. Wydarzenia o których opowiada są związane głównie z jego zdolnościami prowadzenia wszystkich samochodów jakie jeździły po polskich ulicach.
+Turbo Liar: Rust & Fast to narracyjna gra wyścigowa osadzona w latach 70” i 80” w realiach Polskiej Republiki Ludowej - w Bielsku-Białej. Jest to zbiór wspomnień Józka Środy, który w trakcie kolacji wigilijnej opowiada swojemu wnukowi, jak wyglądało życie za komuny. Jego historie pierwotnie trzymają się całości, jednak z czasem jego opowieści coraz bardziej odbiegają od rzeczywistości. Nie ma w nich miejsca na żadne "nudne" i smutne rzeczy - ale czy na pewno? Jego świat skrywa pewne wspomnienia, co do których był przekonany, że zostały już dawno wymazane. Wydarzenia o których opowiada są związane głównie z jego zdolnościami prowadzenia wszystkich samochodów jakie jeździły po polskich ulicach.
