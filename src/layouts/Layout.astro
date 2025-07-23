@@ -131,8 +131,42 @@ const { title } = Astro.props;
       transform 125ms ease-in;
   }
 
+  .btn--steam {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border: 2px solid rgb(23, 29, 37);
+    background-color: rgb(26, 53, 94);
+    background: linear-gradient(
+      150deg,
+      rgba(13, 27, 50, 1) 0%,
+      rgb(20, 43, 78) 50%,
+      rgba(19, 122, 173, 1) 100%
+      );
+    color: var(--clr-text);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 10rem;
+    width: fit-content;
+    cursor: pointer;
+    transition:
+      background-color 125ms ease-out,
+      transform 125ms ease-in;
+  }
+
   .btn:hover {
     background-color: color-mix(in srgb, var(--clr-secondary) 75%, transparent);
     transform: scale(1.1);
+  }
+
+  .btn2:hover {
+    background-color: color-mix(in srgb, var(--clr-text-300) 75%, transparent);
+    transform: scale(1.1);
+  }
+
+  .btn--steam:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
   }
 </style>
