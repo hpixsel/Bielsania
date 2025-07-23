@@ -4,6 +4,7 @@ const gamesCollection = defineCollection({
   type: 'content',
   schema: z.object({
     added: z.number(),
+    inDevelopment: z.boolean(),
     title: z.string(),
     steam: z.string().optional(),
     gamejolt: z.string().optional(),

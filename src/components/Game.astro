@@ -134,8 +134,8 @@ const game = Astro.props;
 
   .game__img {
     aspect-ratio: 16/9;
-    width: 100%;
     z-index: 0;
+    width: 100%;
   }
 
   .game__img img {
@@ -162,10 +162,20 @@ const game = Astro.props;
       align-items: stretch;
     }
 
+    .game__text {
+      padding-right: 20rem;
+    }
+
+    .game__img {
+      position: absolute;
+      width: auto;
+      inset: 0 0 0 auto;
+    }
+
     .game__bg {
       background: linear-gradient(
         90deg,
-        rgba(var(--_bg-color), 1) 75%,
+        rgba(var(--_bg-color), 1) 65%,
         rgba(var(--_bg-color), 0) 100%
       );
     }

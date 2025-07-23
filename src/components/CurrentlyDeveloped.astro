@@ -1,0 +1,108 @@
+---
+import { getCollection } from "astro:content";
+const allGamesPosts = await getCollection("games");
+const allGamesPostsFiltered = allGamesPosts.filter((post) => post.data.inDevelopment);
+const allGamesPostsSorted = allGamesPostsFiltered
+  .sort((x: any, y: any) => {
+    return x.data.added - y.data.added;
+  })
+  .reverse();
+
+const gamesPosts = allGamesPostsSorted.map((post) => ({
+  title: post.data.title,
+  steam: post.data.steam,
+  gamejolt: post.data.gamejolt,
+  body: post.body,
+  img: post.data.imgs[0],
+  url: post.slug,
+}));
+---
+{ gamesPosts.length > 0 && (
+    <div class="currently_developed wrapper">
+        <h2>Obecnie rozwijane gry</h2>
+        <div class="currently_developed__games">
+            {
+                gamesPosts.map((item) => {
+                return (
+                    <a class="currently_developed__game" href={"/gry/" + item.url}>
+                        <img src={"/gry" + item.img} alt={item.title} />
+                        <div class="currently_developed__game__text">
+                            <h3>{item.title}</h3>
+                            <p>{item.body}</p>
+                            <p class="btn2">Czytaj Więcej</p>
+                        </div>
+                    </a>
+                );
+                })
+            }
+        </div>
+    </div>
+    )
+}
+
+<style>
+    .currently_developed {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 4rem;
+    }
+
+    .currently_developed__games {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .currently_developed__game {
+        display: grid;
+        gap: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .currently_developed__game img {
+        border-radius: 0.25rem;
+    }
+
+    .currently_developed__game__text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .currently_developed__game__text p {
+        text-wrap: balance;
+        line-clamp: 5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+
+    .currently_developed__game__text .btn2 {
+        margin-top: 1rem;
+    }
+
+    @media (min-width: 60rem) {
+        .currently_developed__game {
+            display: grid;
+            grid-template-columns: 1.75fr 2fr;
+            gap: 2rem;
+            grid-template-areas: "col1 col2";
+        }
+/*
+        .currently_developed__game:nth-child(even) img {
+            grid-area: col2;
+        }
+
+        .currently_developed__game:nth-child(even) .currently_developed__game__text {
+            grid-area: col1;
+        } */
+
+        .currently_developed__game__text .btn2 {
+            margin-top: auto;
+        }
+    }
+</style>

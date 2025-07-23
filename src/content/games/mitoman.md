@@ -1,9 +1,10 @@
 ---
 added: 1707128481409
+inDevelopment: true
 title: "Turbo Liar: Rust & Fast"
 steam: "https://store.steampowered.com/app/3633880/Turbo_Liar_Rust__Fast/"
 gamejolt: ""
-imgs: ["/tsp/2.png","/tsp/1.png","/tsp/3.png"]
+imgs: ["/tsp/2.png", "/tsp/1.png", "/tsp/3.png"]
 team:
   [
     {
@@ -17,7 +18,8 @@ team:
       img: 2.jpg,
       name: Marcin Kuboszek,
       nickname: cover_master,
-      role: ["Główny grafik 3D", "Prowadzący social mediów", "Kreowanie świata"],
+      role:
+        ["Główny grafik 3D", "Prowadzący social mediów", "Kreowanie świata"],
       desc: "Pasjonat klasycznej motoryzacji, PRL'owskiej audiotechniki i innego sprzętu czasów komunistycznych. Właściciel odrestaurowanego własnoręcznie Ogara 200 a także główny serwisant sprzętów Diory, Unitry i Radmora w okolicy. Otwarty gość który nie boi się podejmowania nowych wyzwań.",
     },
     {
