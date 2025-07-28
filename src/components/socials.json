@@ -1,0 +1,29 @@
+{
+    "socials": [
+        {
+            "name": "Facebook",
+            "link": "https://www.facebook.com/bielsania",
+            "img": "facebook.png"
+        },
+        {
+            "name": "YouTube",
+            "link": "https://www.youtube.com/@bielsania",
+            "img": "youtube.png"
+        },
+        {
+            "name": "Instagram",
+            "link": "https://www.instagram.com/bielsania",
+            "img": "instagram.png"
+        },
+        {
+            "name": "TikTok",
+            "link": "https://www.tiktok.com/@bielsania",
+            "img": "tiktok.png"
+        },
+        {
+            "name": "X",
+            "link": "https://www.x.com/bielsania",
+            "img": "twitter.png"
+        }
+    ]
+}
