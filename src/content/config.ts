@@ -32,7 +32,19 @@ const teamCollection = defineCollection({
   })
 })
 
+const newsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    added: z.number(),
+    img: z.string(),
+    title: z.string(),
+    link: z.string().optional(),
+    changeSide: z.boolean().optional()
+  })
+})
+
 export const collections = {
   games: gamesCollection,
-  team: teamCollection
+  team: teamCollection,
+  news: newsCollection
 };

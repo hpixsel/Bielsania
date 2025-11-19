@@ -1,0 +1,173 @@
+---
+import { getCollection } from "astro:content";
+const allNews = await getCollection("news");
+const allNewsSorted = allNews
+    .sort((x: any, y: any) => {
+        return x.data.added - y.data.added;
+    })
+    .reverse();
+
+const news = allNewsSorted.map((post) => ({
+    added: post.data.added,
+    img: post.data.img,
+    title: post.data.title,
+    desc: post.body,
+    link: post.data?.link ?? "",
+    changeSide: post.data?.changeSide
+}));
+
+function formatDate(timestamp:number):string {
+    const date = new Date(timestamp);
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const yyyy = date.getFullYear();
+
+    return `${dd}.${mm}.${yyyy}`;
+};
+---
+
+{ news.length > 0 && (
+    <div class="news--container wrapper">
+        {
+            news.map((item) => {
+                if (item.link != "") {
+                    return (
+                        <a class={"news" + (item.changeSide ? " news--change_side" : "")} href={item.link}>
+                            <img src={"/news" + item.img} alt={item.title} />
+                            <div class="news__text">
+                                <p class="news__date">{formatDate(item.added)}</p>
+                                <h2 class="news__title" title={item.title}>{item.title}</h2>
+                                <p class="news__desc" title={item.desc}>{item.desc}</p>
+                                <p class="btn2">Przejdź dalej</p>
+                            </div>
+                        </a>
+                    )
+                } else {
+                    return (
+                        <div class={"news" + (item.changeSide ? " news--change_side" : "")}>
+                            <img src={"/news" + item.img} alt={item.title} />
+                            <div class="news__text">
+                                <p class="news__date">{formatDate(item.added)}</p>
+                                <h2 class="news__title" title={item.title}>{item.title}</h2>
+                                <p class="news__desc" title={item.desc}>{item.desc}</p>
+                            </div>
+                        </div>
+                    )
+                }
+            })
+        }
+    </div>
+    )
+}
+
+<style>
+    .news--container {
+        margin-block: 4rem;
+        display: grid;
+        gap: 3rem;
+    }
+
+    .news--container > a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .news {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .news img {
+        border-radius: 0.25rem;
+    }
+
+    .news__date {
+        margin-top: 0.5rem;
+        font-size: 0.75em;
+        color: var(--clr-text-300);
+    }
+
+    .news__title {
+        margin-top: 1rem;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+
+    .news__desc {
+        margin-top: 0.75rem;
+    }
+
+    .news__text .btn2 {
+        margin-top: 2rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    @media (min-width: 60rem) {
+        .news--container {
+            gap: 5rem;
+            margin-block: 5rem;
+        }
+
+        .news {
+            grid-template-areas: "img text";
+            grid-template-columns: 1.75fr 2fr;
+            gap: 2rem;
+        }
+
+        .news__text {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+        }
+
+        .news__text .btn2 {
+            margin-top: auto;
+            width: fit-content;
+        }
+
+        a.news .news__desc {
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+
+        div.news .news__desc {
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 6;
+            overflow: hidden;
+        }
+
+        .news:nth-child(even), .news.news--change_side:nth-child(odd) {
+            grid-template-columns: 2fr 1.75fr;
+        }
+
+        .news:nth-child(even) .news img, .news.news--change_side:nth-child(odd) img {
+            grid-area: text;
+        }
+
+        .news:nth-child(even) .news__text, .news.news--change_side:nth-child(odd) .news__text {
+            grid-area: img;
+        }
+
+        .news.news--change_side:nth-child(even) {
+            grid-template-columns: 1.75fr 2fr;
+        }
+
+        .news.news--change_side:nth-child(even) .news img {
+            grid-area: img;
+        }
+
+        .news.news--change_side:nth-child(even) .news__text {
+            grid-area: text;
+        }
+    }
+</style>
