@@ -1,8 +1,11 @@
 ---
 added: 1763494851000
-img: "/temp.png"
-title: "Testowy wpis dsada dsad adsad sasd asda"
-link: "http://localhost:4321/gry/mitoman"
+img: "/img1.jpeg"
+title: "Współpracujemy z Młodzi4IT!"
+link: "https://www.mlodzi4it.com/o-nas"
 ---
 
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias voluptatibus ratione quibusdam corporis, harum beatae autem eaque vel provident quia eligendi aliquam hic dolores corrupti pariatur, odio qui repellendus vero sit necessitatibus iste magnam? Earum dolorem esse perferendis illo ex saepe quis, quasi aliquid deserunt maxime! Optio quae cupiditate ex tempore temporibus fugiat ullam quisquam
+Młodzi4IT to edukacyjny projekt o cyberbezpieczeństwie dla dzieci i seniorów prowadzony przez uczniów Prywatnego Technikum Informatycznego w Bielsku‐Białej oraz
+licealistów z IV Liceum Ogólnokształcącego im. KEN. w ramach olimpiady Zwolnieni z Teorii. Prowadzą warsztaty i lekcje w szkołach w okręgu powiatu bielskiego w celu
+zwiększenia świadomości o zagrożeniach w sieci wśród uczniów i seniorów, oraz planują wydać grę terenową związaną z ich projektem. My, jako zespół Bielsania Entertainment
+będziemy wspierać chłopaków podczas produkcji gry terenowej
