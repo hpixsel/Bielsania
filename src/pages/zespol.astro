@@ -8,8 +8,12 @@ const allTeammatesSorted = allTeammates.sort((x: any, y: any) => {
 });
 ---
 
-<Layout title="Zespół">
+<Layout
+  title="Zespół"
+  description="Poznaj zespół Bielsania Entertainment – twórców gry Turbo Liar: Rust & Fast z Bielska-Białej."
+>
   <div class="team wrapper">
+    <h1 class="team__heading">Nasz <span>zespół</span></h1>
     {
       allTeammatesSorted.map((person: any) => {
         return <Person body={person.body} data={person.data} />;
@@ -23,5 +27,21 @@ const allTeammatesSorted = allTeammates.sort((x: any, y: any) => {
     display: grid;
     gap: 4rem;
     margin-top: 1rem;
+  }
+
+  .team__heading {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .team__heading span {
+    color: var(--clr-accent);
+  }
+
+  @media (min-width: 60rem) {
+    .team__heading {
+      font-size: 4rem;
+      margin-top: 4rem;
+    }
   }
 </style>

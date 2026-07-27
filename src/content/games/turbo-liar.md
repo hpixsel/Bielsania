@@ -2,6 +2,7 @@
 added: 1707128481409
 inDevelopment: true
 title: "Turbo Liar: Rust & Fast"
+description: "Turbo Liar: Rust & Fast – narracyjna gra wyścigowa osadzona w realiach PRL. Wspomnienia Józka Środy z Bielska-Białej, pełne motoryzacji i niezwykłych historii."
 steam: "https://store.steampowered.com/app/3633880/Turbo_Liar_Rust__Fast/"
 gamejolt: ""
 imgs: ["/tsp/2.png", "/tsp/1.png", "/tsp/3.png"]

@@ -19,8 +19,12 @@ const gamesPosts = allGamesPostsSorted.map((post) => ({
 }));
 ---
 
-<Layout title="Nasze Gry">
+<Layout
+  title="Nasze Gry"
+  description="Zobacz gry tworzone przez Bielsania Entertainment – niezależne studio gier z Bielska-Białej."
+>
   <div class="games wrapper">
+    <h1 class="games__heading">Nasze <span>Gry</span></h1>
     {
       gamesPosts.map((item) => {
         return (
@@ -43,5 +47,21 @@ const gamesPosts = allGamesPostsSorted.map((post) => ({
     display: flex;
     flex-direction: column;
     gap: 4rem;
+  }
+
+  .games__heading {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .games__heading span {
+    color: var(--clr-accent);
+  }
+
+  @media (min-width: 60rem) {
+    .games__heading {
+      font-size: 4rem;
+      margin-top: 4rem;
+    }
   }
 </style>

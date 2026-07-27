@@ -3,9 +3,29 @@ import Layout from "./Layout.astro";
 import PersonGame from "../components/PersonGame.astro";
 
 const { frontmatter } = Astro.props;
+
+const gameImage = "/gry" + frontmatter.imgs[0];
+
+const videoGameSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  name: frontmatter.title,
+  description: frontmatter.description,
+  image: new URL(gameImage, Astro.site).toString(),
+  url: Astro.url,
+  publisher: {
+    "@type": "Organization",
+    name: "Bielsania Entertainment",
+  },
+};
 ---
 
-<Layout title={frontmatter.title}>
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  image={gameImage}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(videoGameSchema)} />
   <div class="game_layout wrapper">
     <div class="game_layout__top">
       <div class="game_layout__socials">
@@ -48,7 +68,7 @@ const { frontmatter } = Astro.props;
           )
         }
       </div>
-      <h2>{frontmatter.title}</h2>
+      <h1>{frontmatter.title}</h1>
     </div>
     <div class="game_layout__imgs">
       <div class="game_layout__imgs__slides">
@@ -94,15 +114,16 @@ const { frontmatter } = Astro.props;
     width: 2rem;
   }
 
-  .game_layout__top h2 {
+  .game_layout__top h1 {
     display: flex;
     gap: 0.5rem;
     align-items: center;
     margin-top: 1rem;
+    font-size: 1.5em;
     color: var(--_text-color);
   }
 
-  .game_layout__top h2::before {
+  .game_layout__top h1::before {
     content: "";
     display: block;
     width: 4px;

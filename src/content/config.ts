@@ -6,6 +6,7 @@ const gamesCollection = defineCollection({
     added: z.number(),
     inDevelopment: z.boolean(),
     title: z.string(),
+    description: z.string().optional(),
     steam: z.string().optional(),
     gamejolt: z.string().optional(),
     imgs: z.array(z.string()),
