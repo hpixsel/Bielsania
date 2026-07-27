@@ -1,0 +1,187 @@
+---
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+
+function formatDate(timestamp: number): string {
+  const date = new Date(timestamp);
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yyyy = date.getFullYear();
+
+  return `${mm}.${yyyy}`;
+}
+
+const galleryImgs: string[] =
+  frontmatter.imgs && frontmatter.imgs.length > 0
+    ? frontmatter.imgs
+    : frontmatter.img
+      ? [frontmatter.img]
+      : [];
+
+const coverImage = galleryImgs[0] ? "/targi/" + galleryImgs[0] : undefined;
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: frontmatter.name,
+  startDate: new Date(frontmatter.date).toISOString(),
+  location: {
+    "@type": "Place",
+    name: frontmatter.location,
+  },
+  ...(coverImage
+    ? { image: new URL(coverImage, Astro.site).toString() }
+    : {}),
+  organizer: {
+    "@type": "Organization",
+    name: "Bielsania Entertainment",
+  },
+};
+---
+
+<Layout
+  title={frontmatter.name}
+  description={`${frontmatter.name} – ${frontmatter.location}. Zobacz relację ze stoiska Bielsania Entertainment.`}
+  image={coverImage}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+  <div class="targi_layout wrapper">
+    <div class="targi_layout__top">
+      <p class="targi_layout__date">{formatDate(frontmatter.date)}</p>
+      <h1>{frontmatter.name}</h1>
+      <p class="targi_layout__location">{frontmatter.location}</p>
+      {
+        frontmatter?.link ? (
+          <a class="btn2" href={frontmatter.link} target="_blank">
+            Odwiedź stronę targów
+          </a>
+        ) : (
+          ""
+        )
+      }
+    </div>
+
+    {
+      galleryImgs.length > 0 && (
+        <div class="targi_layout__imgs">
+          <div class="targi_layout__imgs__slides">
+            {galleryImgs.map((img: string, id: number) => (
+              <img id={"slide-" + id} src={"/targi/" + img} alt="" />
+            ))}
+          </div>
+          {galleryImgs.length > 1 && (
+            <div class="targi_layout__imgs__nav">
+              {galleryImgs.map((img: string, id: number) => (
+                <a href={"#slide-" + id}>
+                  <img src={"/targi/" + img} alt={frontmatter.name + " – zdjęcie " + (id + 1)} />
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )
+    }
+
+    <div class="targi_layout__content">
+      <slot />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .targi_layout {
+    margin-top: 1.5rem;
+  }
+
+  .targi_layout__date {
+    color: var(--clr-accent);
+    font-size: 0.875rem;
+  }
+
+  .targi_layout__top h1 {
+    margin-top: 0.5rem;
+    font-size: 1.75rem;
+  }
+
+  .targi_layout__location {
+    margin-top: 0.25rem;
+    color: var(--clr-text-300);
+  }
+
+  .targi_layout__top .btn2 {
+    margin-top: 1rem;
+  }
+
+  .targi_layout__imgs {
+    margin-top: 1.5rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .targi_layout__imgs__slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .targi_layout__imgs__slides img {
+    min-width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background-color: var(--clr-primary-300);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    scroll-snap-align: start;
+    scroll-margin-top: 15rem;
+  }
+
+  .targi_layout__imgs__slides > * + * {
+    margin-left: 1rem;
+  }
+
+  .targi_layout__imgs__nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .targi_layout__imgs__nav > * {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.25rem;
+  }
+
+  .targi_layout__imgs__nav img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background-color: var(--clr-primary-300);
+  }
+
+  .targi_layout__content {
+    margin-top: 1.5rem;
+  }
+
+  .targi_layout__content :global(p) {
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 60rem) {
+    .targi_layout__top h1 {
+      font-size: 2.5rem;
+    }
+
+    .targi_layout__imgs {
+      margin-top: 2rem;
+    }
+
+    .targi_layout__imgs__nav {
+      margin-top: 2rem;
+      gap: 2rem;
+    }
+  }
+</style>

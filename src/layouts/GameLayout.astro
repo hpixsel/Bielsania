@@ -148,6 +148,9 @@ const videoGameSchema = {
   .game_layout__imgs__slides img {
     min-width: 100%;
     max-width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background-color: var(--clr-primary-300);
     border-radius: 0.25rem;
     overflow: hidden;
     scroll-snap-align: start;
@@ -187,6 +190,9 @@ const videoGameSchema = {
 
   .game_layout__imgs__nav img {
     width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background-color: var(--clr-primary-300);
   }
 
   .game_layout :global(p) {

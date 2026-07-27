@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Targ from "../components/Targ.astro";
+import { getCollection } from "astro:content";
+const allTargi = await getCollection("targi");
+const allTargiSorted = allTargi
+  .sort((x: any, y: any) => x.data.date - y.data.date)
+  .reverse();
+---
+
+<Layout
+  title="Targi"
+  description="Historia targów i wydarzeń branżowych, w których wzięło udział studio Bielsania Entertainment."
+>
+  <div class="targi wrapper">
+    <h1 class="targi__heading">Historia <span>targów</span></h1>
+    {
+      allTargiSorted.length > 0 ? (
+        <div class="targi__list">
+          {allTargiSorted.map((targ: any) => (
+            <Targ body={targ.body} data={targ.data} slug={targ.slug} />
+          ))}
+        </div>
+      ) : (
+        <p class="targi__empty">Wkrótce pojawi się tutaj historia targów.</p>
+      )
+    }
+  </div>
+</Layout>
+
+<style>
+  .targi {
+    margin-top: 1rem;
+  }
+
+  .targi__heading {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .targi__heading span {
+    color: var(--clr-accent);
+  }
+
+  .targi__list {
+    display: grid;
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+
+  .targi__empty {
+    margin-top: 3rem;
+    text-align: center;
+    color: var(--clr-text-300);
+  }
+
+  @media (min-width: 60rem) {
+    .targi__heading {
+      font-size: 4rem;
+      margin-top: 4rem;
+    }
+
+    .targi__list {
+      gap: 5rem;
+      margin-top: 5rem;
+    }
+  }
+</style>

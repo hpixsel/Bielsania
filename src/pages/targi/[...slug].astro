@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import TargiLayout from "../../layouts/TargiLayout.astro";
+
+export async function getStaticPaths() {
+  const targiEntries = await getCollection("targi");
+  return targiEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<TargiLayout frontmatter={entry.data}>
+  <Content />
+</TargiLayout>

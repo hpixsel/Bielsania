@@ -44,8 +44,21 @@ const newsCollection = defineCollection({
   })
 })
 
+const targiCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    date: z.number(),
+    name: z.string(),
+    location: z.string(),
+    img: z.string().optional(),
+    imgs: z.array(z.string()).optional(),
+    link: z.string().optional()
+  })
+})
+
 export const collections = {
   games: gamesCollection,
   team: teamCollection,
-  news: newsCollection
+  news: newsCollection,
+  targi: targiCollection
 };

@@ -125,6 +125,32 @@ const currentPath = pathname.slice(1);
       </li>
       <li class="nav__links__link">
         <a
+          class={currentPath === "targi" || currentPath === "targi/"
+            ? "active"
+            : ""}
+          href="/targi"
+        >
+          <div class="nav__links__link__svg">
+            <svg
+              width="14"
+              height="16"
+              viewBox="0 0 14 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7 16C7 16 14 10.418 14 6C14 2.68629 10.866 0 7 0C3.13401 0 0 2.68629 0 6C0 10.418 7 16 7 16ZM7 8C8.10457 8 9 7.10457 9 6C9 4.89543 8.10457 4 7 4C5.89543 4 5 4.89543 5 6C5 7.10457 5.89543 8 7 8Z"
+                fill="#EEEDEE"></path>
+            </svg>
+          </div>
+          Targi
+          <span>❯</span>
+        </a>
+      </li>
+      <li class="nav__links__link">
+        <a
           class={currentPath === "kontakt" || currentPath === "kontakt/"
             ? "active"
             : ""}

@@ -1,0 +1,142 @@
+---
+const { body, data, slug } = Astro.props;
+
+function formatDate(timestamp: number): string {
+  const date = new Date(timestamp);
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yyyy = date.getFullYear();
+
+  return `${mm}.${yyyy}`;
+}
+
+function excerpt(text: string, maxLength = 150): string {
+  const trimmed = text.trim();
+  if (trimmed.length <= maxLength) return trimmed;
+
+  const cut = trimmed.slice(0, maxLength);
+  const lastSpace = cut.lastIndexOf(" ");
+
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut) + "…";
+}
+---
+
+<div class="targ">
+  <div class="targ__img">
+    {
+      data.img ? (
+        <img src={"/targi/" + data.img} alt={data.name} title={data.name} />
+      ) : (
+        <div class="targ__img__placeholder" aria-hidden="true" />
+      )
+    }
+  </div>
+  <div class="targ__text">
+    <p class="targ__date">{formatDate(data.date)}</p>
+    <h2 class="targ__name">
+      <a href={"/targi/" + slug}>{data.name}</a>
+    </h2>
+    <p class="targ__location">{data.location}</p>
+    {body ? <p class="targ__desc">{excerpt(body)}</p> : ""}
+    <div class="targ__links">
+      <a class="btn2" href={"/targi/" + slug}>
+        Czytaj więcej
+      </a>
+      {
+        data?.link ? (
+          <a class="targ__external" href={data.link} target="_blank">
+            Oficjalna strona targów ↗
+          </a>
+        ) : (
+          ""
+        )
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .targ__img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    border: 4px solid var(--clr-text);
+  }
+
+  .targ__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .targ__img__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      var(--clr-primary-300),
+      var(--clr-main)
+    );
+  }
+
+  .targ__text {
+    margin-top: 1rem;
+  }
+
+  .targ__date {
+    color: var(--clr-accent);
+    font-size: 0.75rem;
+  }
+
+  .targ__name {
+    margin-top: 0.5rem;
+  }
+
+  .targ__name a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .targ__name a:hover {
+    text-decoration: underline;
+  }
+
+  .targ__location {
+    margin-top: 0.25rem;
+    color: var(--clr-text-300);
+  }
+
+  .targ__desc {
+    margin-top: 1rem;
+  }
+
+  .targ__links {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .targ__links .btn2 {
+    display: inline-block;
+  }
+
+  .targ__external {
+    color: var(--clr-text-300);
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 60rem) {
+    .targ {
+      display: grid;
+      gap: 2rem;
+      align-items: flex-start;
+      grid-template-columns: 20rem 1fr;
+    }
+
+    .targ__text {
+      margin-top: 0;
+    }
+  }
+</style>
