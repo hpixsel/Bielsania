@@ -1,110 +1,232 @@
+---
+import { getCollection } from "astro:content";
+
+const inDevGames = (await getCollection("games"))
+  .filter((g) => g.data.inDevelopment)
+  .sort((x: any, y: any) => x.data.added - y.data.added)
+  .reverse();
+
+const flagship = inDevGames[0];
+const flagshipImg = flagship ? "/gry" + flagship.data.imgs[0] : undefined;
+const flagshipLogo = flagship?.data.logo ? "/gry" + flagship.data.logo : undefined;
+
+const genreTags = ["Wyścigi", "Narracja", "PRL"];
+---
+
 <div class="hero">
-  <div class="wrapper">
-    <div class="hero__svg">
-      <img src="/svgs/hero_svg.svg" alt="" />
-    </div>
-    <div class="hero__text">
-      <h1>Wspólnie eksplorujemy <span>światy</span> gier!</h1>
-      <p>
-        Nasza misja to nie tylko tworzenie gier, ale także budowanie
-        społeczności, gdzie pasjonaci mogą się spotkać i dzielić wspólnymi
-        doświadczeniami
-      </p>
-      <div class="hero__btns">
-        <a class="hero__btn btn" href="/gry">Sprawdź Nasze Gry</a>
-        <a class="hero__btn btn--steam" href="https://store.steampowered.com/curator/45563839" target="_blank">
-          <img src="/svgs/steam.svg" alt="Steam" />
-          Steam
-        </a>
-      </div>
-    </div>
+  <div class="hero__media">
+    <video
+      class="hero__media__video"
+      src="/hero.webm"
+      poster={flagshipImg}
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+    {flagshipImg && <img class="hero__media__still" src={flagshipImg} alt="" />}
   </div>
-  <div class="hero__video">
-    <video src="/hero.webm" autoplay muted loop playsinline></video>
+  <div class="hero__overlay"></div>
+  <div class="wrapper hero__content">
+    {
+      flagship ? (
+        <>
+          <p class="hero__eyebrow">Właśnie tworzymy</p>
+          <div class="hero__tags">
+            {genreTags.map((tag) => (
+              <span class="hero__tag">{tag}</span>
+            ))}
+          </div>
+          {flagshipLogo ? (
+            <img class="hero__logo" src={flagshipLogo} alt={flagship.data.title} />
+          ) : (
+            <h1 class="hero__title">
+              Turbo Liar: <span>Rust &amp; Fast</span>
+            </h1>
+          )}
+          <p class="hero__desc">{flagship.data.description}</p>
+          <div class="hero__btns">
+            {flagship.data.steam && (
+              <a class="hero__btn btn--steam" href={flagship.data.steam} target="_blank">
+                <img src="/svgs/steam.svg" alt="Steam" />
+                Dodaj do listy życzeń
+              </a>
+            )}
+            <a class="hero__btn btn2" href="#galeria">Zobacz zrzuty ekranu</a>
+          </div>
+        </>
+      ) : (
+        <>
+          <h1 class="hero__title">
+            Wspólnie eksplorujemy <span>światy</span> gier!
+          </h1>
+          <p class="hero__desc">
+            Nasza misja to nie tylko tworzenie gier, ale także budowanie
+            społeczności, gdzie pasjonaci mogą się spotkać i dzielić
+            wspólnymi doświadczeniami
+          </p>
+          <div class="hero__btns">
+            <a class="hero__btn btn" href="/gry">
+              Sprawdź Nasze Gry
+            </a>
+            <a
+              class="hero__btn btn--steam"
+              href="https://store.steampowered.com/curator/45563839"
+              target="_blank"
+            >
+              <img src="/svgs/steam.svg" alt="Steam" />
+              Steam
+            </a>
+          </div>
+        </>
+      )
+    }
   </div>
-  <div class="hero__bg"></div>
 </div>
 
 <style>
   .hero {
     margin-top: -5rem;
-    padding-top: 6.5rem;
-    text-align: center;
     position: relative;
-    padding-bottom: 4rem;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    overflow: hidden;
+    padding-block: 8rem 4rem;
   }
 
-  .hero__svg {
-    width: 100%;
-  }
-
-  .hero__text {
-    margin-top: 2rem;
-  }
-
-  .hero__text h1 {
-    font-size: 1.5rem;
-    line-height: 1.2;
-  }
-
-  .hero__text span {
-    color: var(--clr-accent);
-    letter-spacing: 0.35rem;
-  }
-
-  .hero__text p {
-    margin-top: 1rem;
-  }
-
-  .hero__btn {
-    margin-top: 2rem;
-    margin-inline: auto;
-  }
-
-  .hero__video {
+  .hero__media {
     position: absolute;
     inset: 0;
-    z-index: -1;
-    filter: brightness(0.75) blur(10px);
+    z-index: -2;
   }
 
-  .hero__video video {
+  .hero__media__video,
+  .hero__media__still {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 50% 50%;
   }
 
-  .hero__bg {
+  .hero__media__still {
+    display: none;
     position: absolute;
     inset: 0;
-    top: -7rem;
-    bottom: -2rem;
-    background-image: url("/svgs/hero_bg.svg");
-    background-repeat: no-repeat;
-    background-size: 350%;
-    background-position: 50% 50%;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
     z-index: -1;
+    background: linear-gradient(
+      0deg,
+      var(--clr-main) 5%,
+      color-mix(in srgb, var(--clr-main) 55%, transparent) 55%,
+      color-mix(in srgb, var(--clr-main) 25%, transparent) 100%
+    );
+  }
+
+  .hero__content {
+    position: relative;
+  }
+
+  .hero__eyebrow {
+    color: var(--clr-accent);
+    font-weight: 600;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  .hero__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .hero__tag {
+    border: 1px solid color-mix(in srgb, var(--clr-accent) 60%, transparent);
+    color: var(--clr-accent);
+    border-radius: 10rem;
+    padding: 0.25rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+  }
+
+  .hero__title {
+    font-size: clamp(2.25rem, 10vw, 3.25rem);
+    line-height: 1.1;
+    margin-top: 0.75rem;
+    font-weight: 700;
+  }
+
+  .hero__title span {
+    color: var(--clr-accent);
+    font-style: italic;
+  }
+
+  .hero__logo {
+    max-width: min(28rem, 80%);
+    margin: 1rem auto 0;
+  }
+
+  .hero__desc {
+    margin-top: 1.25rem;
+    max-width: 40rem;
+    margin-inline: auto;
+    font-size: 1.05rem;
+  }
+
+  .hero__btns {
+    margin-top: 2rem;
+  }
+
+  .hero__btn {
+    margin-inline: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__media__video {
+      display: none;
+    }
+
+    .hero__media__still {
+      display: block;
+    }
   }
 
   @media (min-width: 60rem) {
     .hero {
       text-align: left;
-      padding-block: 7.5rem;
+      align-items: center;
+      min-height: 100vh;
+      padding-block: 8rem 6rem;
     }
 
-    .hero > div {
-      display: flex;
-      flex-direction: row-reverse;
-      gap: 1rem;
+    .hero__content {
+      max-width: 42rem;
     }
 
-    .hero__svg {
-      margin-top: auto;
+    .hero__tags {
+      justify-content: flex-start;
     }
 
-    .hero__text h1 {
-      font-size: 2.5rem;
+    .hero__title {
+      font-size: clamp(3rem, 6vw, 5rem);
+    }
+
+    .hero__logo {
+      margin-inline: 0;
+    }
+
+    .hero__desc {
+      margin-inline: 0;
     }
 
     .hero__btns {
@@ -114,11 +236,6 @@
 
     .hero__btn {
       margin-inline: 0;
-    }
-
-    .hero__bg {
-      background-size: 150%;
-      background-position: 50% 100%;
     }
   }
 </style>

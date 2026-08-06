@@ -9,6 +9,7 @@ const gamesCollection = defineCollection({
     description: z.string().optional(),
     steam: z.string().optional(),
     gamejolt: z.string().optional(),
+    logo: z.string().optional(),
     imgs: z.array(z.string()),
     team: z.array(z.object({
       img: z.string(),

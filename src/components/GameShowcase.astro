@@ -1,0 +1,192 @@
+---
+import { getCollection } from "astro:content";
+const allGamesPosts = await getCollection("games");
+const allGamesPostsFiltered = allGamesPosts.filter((post) => post.data.inDevelopment);
+const allGamesPostsSorted = allGamesPostsFiltered
+  .sort((x: any, y: any) => {
+    return x.data.added - y.data.added;
+  })
+  .reverse();
+
+const gamesPosts = allGamesPostsSorted.map((post) => ({
+  title: post.data.title,
+  steam: post.data.steam,
+  gamejolt: post.data.gamejolt,
+  body: post.body,
+  imgs: post.data.imgs,
+  url: post.slug,
+}));
+---
+{ gamesPosts.length > 0 && (
+    <div class="game_showcase wrapper" id="galeria">
+        <h2>Obecnie rozwijane gry</h2>
+        <div class="game_showcase__games">
+            {
+                gamesPosts.map((item, gameIndex) => {
+                return (
+                    <div class="game_showcase__game">
+                        <div class="game_showcase__game__imgs">
+                            <div class="game_showcase__game__imgs__slides">
+                                {
+                                    item.imgs.map((img: string, id: number) => (
+                                        <img id={`slide-${gameIndex}-${id}`} src={"/gry" + img} alt={`${item.title} - zrzut ekranu ${id + 1}`} />
+                                    ))
+                                }
+                            </div>
+                            {
+                                item.imgs.length > 1 && (
+                                    <div class="game_showcase__game__imgs__nav">
+                                        {
+                                            item.imgs.map((img: string, id: number) => (
+                                                <a href={`#slide-${gameIndex}-${id}`}>
+                                                    <img src={"/gry" + img} alt={`Miniatura ${id + 1}`} />
+                                                </a>
+                                            ))
+                                        }
+                                    </div>
+                                )
+                            }
+                        </div>
+                        <div class="game_showcase__game__text">
+                            <h3>{item.title}</h3>
+                            <p>{item.body}</p>
+                            <div class="game_showcase__game__btns">
+                                {
+                                    item.steam && (
+                                        <a class="game_showcase__btn btn--steam" href={item.steam} target="_blank">
+                                            <img src="/svgs/steam.svg" alt="Steam" />
+                                            Wishlistuj na Steam
+                                        </a>
+                                    )
+                                }
+                                {
+                                    item.gamejolt && (
+                                        <a class="game_showcase__btn btn2" href={item.gamejolt} target="_blank">
+                                            Gamejolt
+                                        </a>
+                                    )
+                                }
+                                <a class="game_showcase__btn btn2" href={"/gry/" + item.url}>
+                                    Pełna strona gry
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                );
+                })
+            }
+        </div>
+    </div>
+    )
+}
+
+<style>
+    .game_showcase {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 4rem;
+        scroll-margin-top: 6rem;
+    }
+
+    .game_showcase__games {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .game_showcase__game {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .game_showcase__game__imgs__slides {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 0.25rem;
+    }
+
+    .game_showcase__game__imgs__slides img {
+        min-width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        background-color: var(--clr-primary-300);
+        overflow: hidden;
+        scroll-snap-align: start;
+    }
+
+    .game_showcase__game__imgs__slides > * + * {
+        margin-left: 1rem;
+    }
+
+    .game_showcase__game__imgs__slides::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .game_showcase__game__imgs__slides::-webkit-scrollbar-thumb {
+        background: black;
+        border-radius: 10px;
+    }
+
+    .game_showcase__game__imgs__slides::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .game_showcase__game__imgs__nav {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .game_showcase__game__imgs__nav > * {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 0.25rem;
+    }
+
+    .game_showcase__game__imgs__nav img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        background-color: var(--clr-primary-300);
+    }
+
+    .game_showcase__game__text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .game_showcase__game__btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .game_showcase__btn {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 2rem;
+    }
+
+    @media (min-width: 60rem) {
+        .game_showcase__game {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1.75fr 2fr;
+        }
+
+        .game_showcase__game__btns {
+            margin-top: auto;
+        }
+    }
+</style>

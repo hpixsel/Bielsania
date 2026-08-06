@@ -1,16 +1,36 @@
 ---
+import { getCollection } from "astro:content";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Layout from "../layouts/Layout.astro";
 import Support from "../components/Support.astro";
-import CurrentlyDeveloped from "../components/CurrentlyDeveloped.astro";
+import GameShowcase from "../components/GameShowcase.astro";
 import Socials from "../components/Socials.astro";
 import News from "../components/News.astro";
+
+const flagship = (await getCollection("games")).find((g) => g.data.inDevelopment);
+
+const videoGameSchema = flagship && {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  name: flagship.data.title,
+  description: flagship.data.description,
+  image: flagship.data.imgs[0] ? new URL("/gry" + flagship.data.imgs[0], Astro.site).toString() : undefined,
+  url: new URL("/gry/" + flagship.slug, Astro.site).toString(),
+  publisher: {
+    "@type": "Organization",
+    name: "Bielsania Entertainment",
+  },
+};
 ---
 
 <Layout>
+  {videoGameSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(videoGameSchema)} />
+  )}
   <Hero />
-  <CurrentlyDeveloped />
+  <GameShowcase />
+  <News />
   <About />
   <Support />
   <Socials />
