@@ -9,8 +9,6 @@ const inDevGames = (await getCollection("games"))
 const flagship = inDevGames[0];
 const flagshipImg = flagship ? "/gry" + flagship.data.imgs[0] : undefined;
 const flagshipLogo = flagship?.data.logo ? "/gry" + flagship.data.logo : undefined;
-
-const genreTags = ["Wyścigi", "Narracja", "PRL"];
 ---
 
 <div class="hero">
@@ -31,12 +29,7 @@ const genreTags = ["Wyścigi", "Narracja", "PRL"];
     {
       flagship ? (
         <>
-          <p class="hero__eyebrow">Właśnie tworzymy</p>
-          <div class="hero__tags">
-            {genreTags.map((tag) => (
-              <span class="hero__tag">{tag}</span>
-            ))}
-          </div>
+          
           {flagshipLogo ? (
             <img class="hero__logo" src={flagshipLogo} alt={flagship.data.title} />
           ) : (
